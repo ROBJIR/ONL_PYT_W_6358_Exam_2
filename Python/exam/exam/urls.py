@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from exam_app.views import LoginView
+from exam_app.views import LoginView, DivideView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login', LoginView.as_view(), name="login"),
+    path("divide/<str:a>/<str:b>/", DivideView.as_view(), name="divide"),
 ]
+

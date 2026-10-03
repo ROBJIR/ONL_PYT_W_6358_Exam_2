@@ -32,3 +32,13 @@ class LoginView(View):
             response.delete_cookie("logged_in")
 
         return response
+
+class DivideView(View):
+    def get(self, request, a, b):
+        a = float(a)
+        b = float(b)
+
+        if b == 0:
+            return HttpResponse("Cannot divide by 0!")
+
+        return HttpResponse(str(a / b))
